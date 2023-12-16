@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
             enableDarkMode();
         }
     });
-
     // funksjon for å aktivere mørk modus
     function enableDarkMode() {
         // aktiverer mørk modus for hele siden
@@ -70,4 +69,56 @@ document.addEventListener('DOMContentLoaded', function() {
         // oppdaterer forrige scroll-posisjon til nåværende for neste sammenligning
         prevScrollpos = currentScrollPos;
     };
+});
+
+// robotstemmeoppleser
+// lytter etter når nettsiden er helt klar før den starter koden
+document.addEventListener('DOMContentLoaded', function() {
+    // henter referanser til knappen, lydfilen og bildene
+    const robotVoice = document.getElementById('robotVoice'); // lydfilen for tekst-til-tale
+    const toggleButton = document.getElementById('toggleButton'); // knappen for avspilling
+    const buttonImage = document.getElementById('buttonImage'); // bildet som viser avspillingsstatus
+    const playIconPath = '/images/pause.png'; // bilde for pauseknapp
+    const pauseIconPath = '/images/sound.png'; // bilde for avspillingsknapp
+    const stopIconPath = '/images/off.png'; // bilde for stoppknapp
+    let isPlaying = false; // holder styr på om lyden spilles eller ei
+    // endrer bildet på knappen til det som blir gitt som sti
+    function changeButtonImage(imagePath) {
+        buttonImage.src = imagePath;
+    }
+    // bytter mellom å spille og pause lyden når knappen trykkes
+    function toggleRobotVoice() {
+        if (isPlaying) {
+            robotVoice.pause(); // setter lyden på pause hvis den spiller
+            isPlaying = false; // markerer at lyden ikke spilles lenger
+        } else {
+            robotVoice.play(); // starter avspilling hvis lyden ikke spiller
+            isPlaying = true; // markerer at lyden spilles
+        }
+    }
+    // lytter etter klikk på knappen for å starte/pause avspillingen
+    toggleButton.addEventListener('click', function() {
+        toggleRobotVoice(); // bytter avspillingsstatus når knappen trykkes
+        // oppdaterer knappbildet basert på avspillingsstatus
+        if (isPlaying) {
+            changeButtonImage(pauseIconPath); // viser pause-ikon hvis lyden spilles
+        } else {
+            changeButtonImage(playIconPath); // viser avspillings-ikon hvis lyden ikke spilles
+        }
+    });
+    // lytter etter når lyden er ferdig avspilt
+    robotVoice.addEventListener('ended', function() {
+        isPlaying = false; // markerer at lyden ikke spilles lenger når den er ferdig
+        changeButtonImage(playIconPath); // viser avspillingsikon på knappen
+    });
+    // lytter etter når lyden starter å spille
+    robotVoice.addEventListener('play', function() {
+        isPlaying = true; // markerer at lyden spilles når den starter
+        changeButtonImage(pauseIconPath); // viser pauseikon på knappen
+    });
+    // lytter etter når lyden settes på pause
+    robotVoice.addEventListener('pause', function() {
+        isPlaying = false; // markerer at lyden ikke spilles når den settes på pause
+        changeButtonImage(playIconPath); // viser avspillingsikon på knappen
+    });
 });

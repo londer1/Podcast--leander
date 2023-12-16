@@ -131,7 +131,6 @@ nav ul li a {
     text-decoration: none;
     color: #fff;
 }
-
 nav ul li a:hover {
     color: #dc143c;
 }
@@ -149,7 +148,6 @@ nav ul li button {
     align-items: center;
     min-width: auto;
 }
-
 nav ul li button:hover {
     background-color: #242424;
     color: #fff;
@@ -293,22 +291,18 @@ audio   {
     margin-block-end:220px;
     padding: 80px;
 }
-
 .types-content {
     max-width: 800px;
     margin: 0 auto;
 }
-
 .types-content p {
     line-height: 1.6;
     font-size: 1rem;
 }
-
 .types-title {
     line-height: 1.6;
     font-size: 3rem;
 }
-
 .types-list {
     list-style-type: disc;
     padding-left: 20px;
@@ -316,35 +310,47 @@ audio   {
     max-width: 800px;
     text-align: left;
 }
-
 .types-list li {
     margin-bottom: 8px;
     font-size: 1rem;
     line-height: 1.4;
     text-align: left;
 }
-
 @media only screen and (max-width: 768px) {
     .types-content {
         max-width: 90%;
         padding: 0 10px;
     }
-
     .types-section {
         padding-top: 70px;
         padding-bottom: 50px;
         margin-block-end: 80px;
     }
-
     .types-list {
         padding-left: 15px;
         max-width: 90%;
     }
-
     .types-list li {
         margin-bottom: 6px;
     }
 }
-.types-title{
-    
+/* Robotstemmen sin knapp */
+.audio-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px; /* Adjust the button size */
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #eee;
+    border: none;
+}
+.title-with-audio {
+    gap: 20px;
+}
+.audio-button img {
+    width: auto;
+    height: 70%;
+    padding-left: 75px;
 }
