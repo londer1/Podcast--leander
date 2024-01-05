@@ -65,7 +65,10 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
-    transition: background-color 0.3s, color 0.3s;
+}
+.hidden-body {
+    visibility: hidden;
+    opacity: 0;
 }
 body.dark-mode {
     background-color: #333;
@@ -93,7 +96,6 @@ body.dark-mode p {
 body.dark-mode section {
     background-color: #444;
     box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-    transition: background-color 0.3s;
 }
 /* podcast */
 .podcast-section {
@@ -101,7 +103,6 @@ body.dark-mode section {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, box-shadow 0.3s;
 }
 .podcast-section.dark-mode {
     background-color: #444;
@@ -114,7 +115,6 @@ body.dark-mode section {
 .episode p {
     text-align: center;
     color: #333;
-    transition: color 0.3s;
 }
 /* Dark Mode tekst Podcast */
 body.dark-mode .podcast-title,
@@ -125,7 +125,7 @@ body.dark-mode .episode p {
 }
 /* gjem innhold */
 .hidden-content {
-    display: none;
+    visibility: hidden;
 }
 nav ul li a {
     text-decoration: none;
@@ -141,7 +141,6 @@ nav ul li button {
     background-color:#dc143c;
     color: #222;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
     min-width: 120px;
     display: flex;
     justify-content: center;

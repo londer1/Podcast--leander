@@ -53,11 +53,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // henter header-elementet på siden
     const header = document.querySelector('header');
     // holder styr på forrige scroll-posisjon
-    let prevScrollpos = window.pageYOffset;
+    let prevScrollpos = window.scrollY;
     // lytter etter scroll-hendelser
     window.onscroll = function() {
         // nåværende scroll-posisjon
-        let currentScrollPos = window.pageYOffset;
+        let currentScrollPos = window.scrollY;
         // sammenligner forrige og nåværende scroll-posisjoner
         if (prevScrollpos > currentScrollPos) {
             // viser headeren ved å flytte den til 'top: 0'
