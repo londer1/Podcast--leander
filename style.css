@@ -142,6 +142,7 @@ nav ul li button {
     color: #222;
     cursor: pointer;
     min-width: 120px;
+    transition: background-color 0.3s, color 0.3s;
     display: flex;
     justify-content: center;
     align-items: center;
